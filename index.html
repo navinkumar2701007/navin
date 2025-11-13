@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navin Portfolio</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #0d0d0d;
+        color: white;
+        font-family: Arial, sans-serif;
+        overflow-x: hidden;
+    }
+
+    /* Floating glitter animation */
+    .glitter {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+        0% { transform: translateY(100vh); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    .hero {
+        text-align: center;
+        padding-top: 150px;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        margin-bottom: 10px;
+        opacity: 0;
+    }
+
+    p {
+        font-size: 1.4rem;
+        opacity: 0;
+    }
+
+    /* Tech Buttons */
+    .tech-container {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .tech-box {
+        padding: 12px 20px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 10px;
+        font-size: 1rem;
+        backdrop-filter: blur(5px);
+        animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { box-shadow: 0 0 5px #ffffff50; }
+        to { box-shadow: 0 0 20px #ffffff; }
+    }
+
+    /* Social buttons */
+    .socials {
+        margin-top: 40px;
+    }
+
+    .btn {
+        background: #1e90ff;
+        padding: 12px 20px;
+        border-radius: 8px;
+        margin: 10px;
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .btn:hover {
+        background: #0066ff;
+    }
+
+</style>
+</head>
+
+<body>
+
+<!-- Glitter -->
+<script>
+    for(let i=0; i<40; i++){
+        let glitter = document.createElement("div");
+        glitter.classList.add("glitter");
+        glitter.style.left = Math.random()*100 + "vw";
+        glitter.style.animationDelay = (Math.random()*5)+"s";
+        document.body.appendChild(glitter);
+    }
+</script>
+
+<div class="hero">
+    <h1 id="title">Hi, I'm Navin 👋</h1>
+    <p id="subtitle">DevOps Engineer | AWS | Linux | Jenkins | Docker | CI/CD | NGINX</p>
+
+    <div class="tech-container">
+        <div class="tech-box">AWS</div>
+        <div class="tech-box">Jenkins</div>
+        <div class="tech-box">NGINX</div>
+        <div class="tech-box">Docker</div>
+        <div class="tech-box">CI/CD Pipelines</div>
+        <div class="tech-box">Linux</div>
+        <div class="tech-box">GitHub</div>
+    </div>
+
+    <div class="socials">
+        <a href="mailto:navin@example.com" class="btn">Email</a>
+        <a href="https://github.com/navinkumar2701007" class="btn">GitHub</a>
+        <a href="https://linkedin.com" class="btn">LinkedIn</a>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<script>
+gsap.from("#title", { duration: 1.5, opacity: 0, y: -40 });
+gsap.from("#subtitle", { duration: 1.5, opacity: 0, y: 40, delay: 0.5 });
+</script>
+
+</body>
+</html>
+

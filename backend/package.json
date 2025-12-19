@@ -1,0 +1,9 @@
+{
+  "name": "navin-backend",
+  "version": "1.0.0",
+  "description": "Simple Node backend for Jenkins + PM2",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  }
+}

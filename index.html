@@ -100,6 +100,7 @@
 
 <body>
 
+<!-- Glitter Background -->
 <script>
     for (let i = 0; i < 40; i++) {
         let glitter = document.createElement("div");
@@ -114,7 +115,7 @@
     <h1 id="title">Hi, I'm Navin ✌🏻</h1>
     <p id="subtitle">DevOps Engineer | AWS | Linux | Jenkins | CI/CD | NGINX</p>
 
-    <!-- BACKEND STATUS SHOWS HERE -->
+    <!-- ✅ BACKEND STATUS -->
     <p id="backend-status">Checking backend status...</p>
 
     <div class="tech-container">
@@ -134,6 +135,7 @@
     </div>
 </div>
 
+<!-- GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 <script>
@@ -148,10 +150,15 @@
     );
 </script>
 
-<!-- BACKEND API CONNECTION -->
+<!-- ✅ BACKEND API CONNECTION (SAFE VERSION) -->
 <script>
     fetch("https://api.navin.cloud")
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            return response.json();
+        })
         .then(data => {
             document.getElementById("backend-status").innerText =
                 "API Status: " + data.message;
@@ -159,9 +166,10 @@
         .catch(error => {
             document.getElementById("backend-status").innerText =
                 "Backend connection failed ❌";
-            console.error(error);
+            console.error("Backend error:", error);
         });
 </script>
 
 </body>
 </html>
+
